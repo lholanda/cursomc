@@ -19,11 +19,12 @@ public class CategoriaResource {
 	
 	@Autowired // aqui vai injetar service dentro da Categoria
 	private CategoriaService service;
-	
-	@RequestMapping(value="/{id}",method=RequestMethod.GET)
-	public ResponseEntity<?> buscar(@PathVariable Integer id) {
-		
-		Categoria obj = service.buscar(id);  // injetado
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public ResponseEntity<?> find(@PathVariable Integer id) {
+		// ENCONTRAR UMA CATEGORIA COM O id
+
+		Categoria obj = service.find(id); // injetado
 		return ResponseEntity.ok().body(obj);
 	}
 }
