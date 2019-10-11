@@ -12,6 +12,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;  // tive que colocar manualmente pois nao puxou
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Produto implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -23,6 +25,7 @@ public class Produto implements Serializable{
 	private Double preco;
 	
 	// categorias = nome do papel
+	@JsonBackReference
 	@ManyToMany
 	@JoinTable(name = "PRODUTO_CATEGORIA",       // PRODUTO_CATEGORIA é a tabela temporaria - meio de campo
 	  joinColumns = @JoinColumn(name = "produto_id"),         
